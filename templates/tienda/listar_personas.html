@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}"  media="screen">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div  class="col-sm-12 maincontent">
+                    <h1>LISTA DE PERSONAS</h1>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>APELLIDO</th>
+                                <th>NOMBRE</th>
+                                <th>LOCALIDAD</th>
+                                <th>MODIFICAR</th>
+                                <th>ELIMINAR</th>
+                            </tr>
+                        </thead>
+                        {% for persona in gentes %} 
+                        <tr>
+                            <td>{{persona.apellido}}</td>
+                            <td>{{persona.nombre}}</td>
+                            <td>{{persona.localidad.nombre}}</td>
+                            <td><a href="{% url 'persona_modificar' persona.num_doc %}"><img src="{% static 'img/Modificar.jpeg' %}" alt=""></a></td>
+                            <td><a href="{% url 'persona_eliminar' persona.num_doc %}"><img src="{% static 'img/Eliminar_25.png' %}" alt=""></a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
