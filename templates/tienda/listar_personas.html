@@ -22,6 +22,7 @@
                                 <th>LOCALIDAD</th>
                                 <th>MODIFICAR</th>
                                 <th>ELIMINAR</th>
+                                <th>AGREGAR</th>
                             </tr>
                         </thead>
                         {% for persona in gentes %} 
@@ -31,6 +32,7 @@
                             <td>{{persona.localidad.nombre}}</td>
                             <td><a href="{% url 'persona_modificar' persona.num_doc %}"><img src="{% static 'img/Modificar.jpeg' %}" alt=""></a></td>
                             <td><a href="{% url 'persona_eliminar' persona.num_doc %}"><img src="{% static 'img/Eliminar_25.png' %}" alt=""></a></td>
+                            <td>agregar</td>
                         </tr>
                         {% endfor %}
                     </table>
